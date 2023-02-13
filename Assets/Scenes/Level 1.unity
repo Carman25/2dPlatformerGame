@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 486878465}
   - component: {fileID: 486878464}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,48 +259,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7716089413570006209, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_Size.x
-      value: 0.20248976
-      objectReference: {fileID: 0}
-    - target: {fileID: -7716089413570006209, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_Size.y
-      value: 0.0801754
-      objectReference: {fileID: 0}
-    - target: {fileID: -7716089413570006209, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.057077676
-      objectReference: {fileID: 0}
-    - target: {fileID: -7716089413570006209, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -3979981127018113362, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_Size.x
-      value: 1.19
-      objectReference: {fileID: 0}
-    - target: {fileID: -3979981127018113362, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_Size.y
-      value: 1.24
-      objectReference: {fileID: 0}
-    - target: {fileID: -3979981127018113362, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1628792377, guid: 3096900f34f164ed1a49115d9e009f75, type: 3}
-    - target: {fileID: -3979981127018113362, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2552122069441217317, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936015856461747328, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_Actions
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: 5b97aa5ddf048418eaebc53d2b3feaf7, type: 3}
-    - target: {fileID: 2936015856461747328, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
-      propertyPath: m_DefaultActionMap
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7245158823176082851, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
@@ -347,7 +307,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7293811663994749088, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2982818000918524894, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
 --- !u!1 &1907162883
 GameObject:
@@ -361,7 +326,7 @@ GameObject:
   - component: {fileID: 1907162887}
   - component: {fileID: 1907162886}
   - component: {fileID: 1907162885}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
