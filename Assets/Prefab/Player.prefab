@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  jp: 8
+  jp: 4
   isFacingRight: 1
   rb: {fileID: -2429552593592170521}
   groundCheck: {fileID: 7293811663994749088}
