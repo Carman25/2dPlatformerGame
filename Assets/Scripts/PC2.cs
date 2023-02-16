@@ -10,7 +10,7 @@ public class PC2 : MonoBehaviour
     public float speed, jp;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    bool canMove;
+    private bool canMove, canDJ;
     public bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
@@ -21,18 +21,35 @@ public class PC2 : MonoBehaviour
         // speed = 2f;
         // jp = 8f;
         animator = GetComponent<Animator>();
+        canDJ = true;
 
     }
     void Update(){
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetButtonDown("Jump") && isGrounded()){
-            rb.velocity = new Vector2(rb.velocity.x, jp);
+        
+
+        if(Input.GetButtonDown("Jump")){
+            if(isGrounded()){
+                rb.velocity = new Vector2(rb.velocity.x, jp);
+                canDJ = true;
+                
+            }
+            else if(canDJ){
+                rb.velocity = new Vector2(rb.velocity.x, jp * 0.8f);
+                canDJ = false;
+                
+            }
+            else{
+                
+            }
+            
         }
 
-        if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f){
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
+        // if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f && canDJ){
+        //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 1.5f);
+        //     canDJ = false;
+        // }
     }
 
     void FixedUpdate(){
@@ -52,7 +69,8 @@ public class PC2 : MonoBehaviour
 
     }
     private bool isGrounded(){
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        Vector2 size = new Vector2(0.05f, 0.2f);
+        return Physics2D.OverlapBox(groundCheck.position, size, 0f, groundLayer);
     }
 
     private void Flip(){

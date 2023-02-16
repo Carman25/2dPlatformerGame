@@ -405,6 +405,8 @@ GameObject:
   - component: {fileID: 1327876918}
   - component: {fileID: 1327876917}
   - component: {fileID: 1327876916}
+  - component: {fileID: 1327876921}
+  - component: {fileID: 1327876920}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -13706,7 +13708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4801111454448509775, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
       propertyPath: jp
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7245158823176082851, guid: f2291e3970f154aab928c3e596ffaf96, type: 3}
       propertyPath: m_RootOrder
