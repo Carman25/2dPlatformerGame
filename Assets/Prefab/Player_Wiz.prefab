@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 2344881509070443648}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78fb333fbbbab4f17a4279137d43db61, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  jp: 5
+  jp: 4
   isFacingRight: 1
   rb: {fileID: 2761147777008825619}
   groundCheck: {fileID: 1679096997432274188}
