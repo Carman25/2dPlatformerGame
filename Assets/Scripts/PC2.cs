@@ -22,6 +22,7 @@ public class PC2 : MonoBehaviour
         // jp = 8f;
         animator = GetComponent<Animator>();
         canDJ = true;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
     void Update(){
@@ -56,11 +57,13 @@ public class PC2 : MonoBehaviour
         if(isGrounded() == false){
             rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
             animator.SetBool("isMoving", false);
+            Flip(horizontal);
         }
         else{
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
             if(horizontal != 0){
                 animator.SetBool("isMoving", true);
+                Flip(horizontal);
             }
             else{
                 animator.SetBool("isMoving", false);
@@ -73,11 +76,12 @@ public class PC2 : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position, size, 0f, groundLayer);
     }
 
-    private void Flip(){
-        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f){
-            spriteRenderer.flipX = !isFacingRight;
-            isFacingRight = !isFacingRight;
-            
+    private void Flip(float n){
+        if(n < 0){
+            spriteRenderer.flipX = true;
+        }
+        else if(n > 0){
+            spriteRenderer.flipX = false;
         }
     }
 
