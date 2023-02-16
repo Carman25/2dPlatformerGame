@@ -14,7 +14,7 @@ public class PC2 : MonoBehaviour
     public bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform groundCheck, landingCheck;
     [SerializeField] private LayerMask groundLayer;
 
     void Start(){
@@ -33,18 +33,23 @@ public class PC2 : MonoBehaviour
         if(Input.GetButtonDown("Jump")){
             if(isGrounded()){
                 rb.velocity = new Vector2(rb.velocity.x, jp);
-                canDJ = true;
+                animator.SetTrigger("Jump");
                 
             }
             else if(canDJ){
                 rb.velocity = new Vector2(rb.velocity.x, jp * 0.8f);
                 canDJ = false;
+                animator.SetTrigger("Jump");
                 
             }
             else{
                 
             }
             
+            
+        }
+        if(isGrounded()){
+            canDJ = true;
         }
 
         // if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f && canDJ){
@@ -70,10 +75,19 @@ public class PC2 : MonoBehaviour
             } 
         }
 
+        if(isLanding()){
+            animator.SetTrigger("Land");
+        }
+
     }
     private bool isGrounded(){
-        Vector2 size = new Vector2(0.05f, 0.2f);
+        Vector2 size = new Vector2(0.05f, 0.15f);
         return Physics2D.OverlapBox(groundCheck.position, size, 0f, groundLayer);
+    }
+
+    private bool isLanding(){
+        Vector2 size = new Vector2(0.05f, 2f);
+        return Physics2D.OverlapBox(landingCheck.position, size, 0f, groundLayer);
     }
 
     private void Flip(float n){
