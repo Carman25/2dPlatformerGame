@@ -10,11 +10,11 @@ public class PC2 : MonoBehaviour
     public float speed, jp;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    private bool canMove, canDJ;
-    public bool isFacingRight = true;
+    private bool canMove, canDJ, isDashing;
+    public bool canDash;
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck, landingCheck;
+    [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
     void Start(){
@@ -23,6 +23,9 @@ public class PC2 : MonoBehaviour
         animator = GetComponent<Animator>();
         canDJ = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        isDashing = false;
+        rb = GetComponent<Rigidbody2D>();
+
 
     }
     void Update(){
@@ -48,6 +51,9 @@ public class PC2 : MonoBehaviour
             
             
         }
+        if(Input.GetButtonDown("Dash")){
+            Dash();
+        }
         if(isGrounded()){
             canDJ = true;
         }
@@ -59,35 +65,30 @@ public class PC2 : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if(isGrounded() == false){
-            rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
-            animator.SetBool("isMoving", false);
-            Flip(horizontal);
-        }
-        else{
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-            if(horizontal != 0){
-                animator.SetBool("isMoving", true);
+        if(!isDashing){
+            if(isGrounded() == false){
+                rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
+                animator.SetBool("isMoving", false);
                 Flip(horizontal);
             }
             else{
-                animator.SetBool("isMoving", false);
-            } 
+                rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+                if(horizontal != 0){
+                    animator.SetBool("isMoving", true);
+                    Flip(horizontal);
+                }
+                else{
+                    animator.SetBool("isMoving", false);
+                } 
+            }
         }
 
-        if(isLanding()){
-            animator.SetTrigger("Land");
-        }
+        
 
     }
     private bool isGrounded(){
-        Vector2 size = new Vector2(0.05f, 0.15f);
+        Vector2 size = new Vector2(0.05f, 0.1f);
         return Physics2D.OverlapBox(groundCheck.position, size, 0f, groundLayer);
-    }
-
-    private bool isLanding(){
-        Vector2 size = new Vector2(0.05f, 2f);
-        return Physics2D.OverlapBox(landingCheck.position, size, 0f, groundLayer);
     }
 
     private void Flip(float n){
@@ -98,6 +99,33 @@ public class PC2 : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
+
+    void Dash(){
+        rb.gravityScale = 0;
+        
+        isDashing = true;
+        animator.SetTrigger("Dash");
+    }
+
+    void EndDash(){
+        isDashing = false;
+        rb.gravityScale = 1;
+    }
+
+    void StartDashMove(){
+        if(!spriteRenderer.flipX){
+            rb.velocity = new Vector2(speed * 1.0f, 0);
+        }else{
+            rb.velocity = new Vector2(speed * -1.0f, 0);
+        }
+
+    }
+
+    void StopDashMove(){
+        rb.velocity = Vector2.zero;
+    }
+
+
 
 }
 
