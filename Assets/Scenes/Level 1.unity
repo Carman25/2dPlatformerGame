@@ -35971,12 +35971,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1101657089042112915, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101657089042112915, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2344881509070443648, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: m_Name
       value: Player_Wiz
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
+      propertyPath: jp
+      value: 4.05
       objectReference: {fileID: 0}
     - target: {fileID: 5904374211035513048, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: m_RootOrder
