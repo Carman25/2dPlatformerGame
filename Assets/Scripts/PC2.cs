@@ -10,8 +10,8 @@ public class PC2 : MonoBehaviour
     public float speed, jp;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    private bool canMove, canDJ, isDashing;
-    public bool canDash;
+    private bool canMove, canDJ, isDashing, canDash;
+    public bool dashUnlocked;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -22,6 +22,7 @@ public class PC2 : MonoBehaviour
         // jp = 8f;
         animator = GetComponent<Animator>();
         canDJ = true;
+        canDash = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         isDashing = false;
         rb = GetComponent<Rigidbody2D>();
@@ -101,15 +102,20 @@ public class PC2 : MonoBehaviour
     }
 
     void Dash(){
-        rb.gravityScale = 0;
+        if(dashUnlocked && canDash){
+            rb.gravityScale = 0;
         
-        isDashing = true;
-        animator.SetTrigger("Dash");
+            isDashing = true;
+            animator.SetTrigger("Dash");
+            canDash = false;
+        }
+        
     }
 
     void EndDash(){
         isDashing = false;
         rb.gravityScale = 1;
+        Invoke("setCanDash", 2.25f);
     }
 
     void StartDashMove(){
@@ -125,6 +131,9 @@ public class PC2 : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
+    void setCanDash(){
+        canDash = true;
+    }
 
 
 }
