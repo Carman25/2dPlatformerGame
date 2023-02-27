@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 public class PC2 : MonoBehaviour
 {
     private float horizontal;
-    public float speed, JumpPower;
+    public float speed, JumpPower, startTime;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    private bool canMove, canDoubleJump, isDashing, usedDash;
+    private bool canMove, canDoubleJump, isDashing, usedDash, isStart;
     public bool canDash;
 
     [SerializeField] private Rigidbody2D rb;
@@ -26,72 +26,76 @@ public class PC2 : MonoBehaviour
         isDashing = false;
         usedDash = false;
         rb = GetComponent<Rigidbody2D>();
+        isStart = true;
+        Invoke("setIsStart", startTime);
 
 
     }
     void Update(){
-        horizontal = Input.GetAxisRaw("Horizontal");
 
-        
+        if(!isStart){
+            horizontal = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetButtonDown("Jump")){
+            if(Input.GetButtonDown("Jump")){
+                if(isGrounded()){
+                    rb.velocity = new Vector2(rb.velocity.x, JumpPower);
+                    animator.SetTrigger("Jump");
+                    
+                }
+                else if(canDoubleJump){
+                    rb.velocity = new Vector2(rb.velocity.x, JumpPower * 0.8f);
+                    canDoubleJump = false;
+                    animator.SetTrigger("Jump");
+                    
+                }
+                else{
+                    
+                }
+                
+                
+            }
+            if(Input.GetButtonDown("Dash")){
+                Dash();
+            }
             if(isGrounded()){
-                rb.velocity = new Vector2(rb.velocity.x, JumpPower);
-                animator.SetTrigger("Jump");
-                
+                canDoubleJump = true;
             }
-            else if(canDoubleJump){
-                rb.velocity = new Vector2(rb.velocity.x, JumpPower * 0.8f);
-                canDoubleJump = false;
-                animator.SetTrigger("Jump");
-                
-            }
-            else{
-                
-            }
-            
-            
-        }
-        if(Input.GetButtonDown("Dash")){
-            Dash();
-        }
-        if(isGrounded()){
-            canDoubleJump = true;
-        }
 
-        // if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f && canDJ){
-        //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 1.5f);
-        //     canDJ = false;
-        // }
+            // if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f && canDJ){
+            //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 1.5f);
+            //     canDJ = false;
+            // }}
+        }
     }
-
     void FixedUpdate(){
-        if(!isDashing){
-            if(isGrounded() == false){
-                rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
-                animator.SetBool("isMoving", false);
-                Flip(horizontal);
-            }
-            else{
-                rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-                if(horizontal != 0){
-                    animator.SetBool("isMoving", true);
+        if(!isStart){
+            if(!isDashing){
+                if(isGrounded() == false){
+                    rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
+                    animator.SetBool("isMoving", false);
                     Flip(horizontal);
                 }
                 else{
-                    animator.SetBool("isMoving", false);
-                } 
+                    rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+                    if(horizontal != 0){
+                        animator.SetBool("isMoving", true);
+                        Flip(horizontal);
+                    }
+                    else{
+                        animator.SetBool("isMoving", false);
+                    } 
+                }
             }
-        }
 
-        //turns dash back on once grounded
-        if(isGrounded() == true){
-            usedDash = false;
+            //turns dash back on once grounded
+            if(isGrounded() == true){
+                usedDash = false;
+            }
         }
         
     }
     private bool isGrounded(){
-        Vector2 size = new Vector2(0.05f, 0.1f);
+        Vector2 size = new Vector2(0.1f, 0.1f);
         return Physics2D.OverlapBox(groundCheck.position, size, 0f, groundLayer);
     }
 
@@ -134,6 +138,10 @@ public class PC2 : MonoBehaviour
 
     void setCanDash(){
         canDash = true;
+    }
+
+    void setIsStart(){
+        isStart = false;
     }
 
 
