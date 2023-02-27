@@ -12,14 +12,18 @@ public class PC2 : MonoBehaviour
     Animator animator;
     private bool canMove, canDoubleJump, isDashing, usedDash;
     public bool canDash;
+    public bool hardMode;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
     void Start(){
-        // speed = 2f;
-        // jp = 8f;
+        if(hardMode){
+            JumpPower = 4.0f;
+        }else{
+            JumpPower = 4.1f;
+        }
         animator = GetComponent<Animator>();
         canDoubleJump = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
