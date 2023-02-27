@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2761147777008825619}
   - component: {fileID: 5244021047621036580}
   - component: {fileID: 3131797612829239330}
-  - component: {fileID: 4404086202333982349}
   m_Layer: 0
   m_Name: Player_Wiz
   m_TagString: Untagged
@@ -201,25 +200,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  jp: 4
-  isFacingRight: 1
+  JumpPower: 4
+  canDash: 0
   rb: {fileID: 2761147777008825619}
   groundCheck: {fileID: 1679096997432274188}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &4404086202333982349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2344881509070443648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df913e7d63e754ab7a23f0a144573de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7714330382657109522
 GameObject:
   m_ObjectHideFlags: 0

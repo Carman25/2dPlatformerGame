@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 public class PC2 : MonoBehaviour
 {
     private float horizontal;
-    public float speed, jp;
+    public float speed, JumpPower;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    private bool canMove, canDJ, isDashing;
+    private bool canMove, canDoubleJump, isDashing, usedDash;
     public bool canDash;
 
     [SerializeField] private Rigidbody2D rb;
@@ -21,9 +21,10 @@ public class PC2 : MonoBehaviour
         // speed = 2f;
         // jp = 8f;
         animator = GetComponent<Animator>();
-        canDJ = true;
+        canDoubleJump = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         isDashing = false;
+        usedDash = false;
         rb = GetComponent<Rigidbody2D>();
 
 
@@ -35,13 +36,13 @@ public class PC2 : MonoBehaviour
 
         if(Input.GetButtonDown("Jump")){
             if(isGrounded()){
-                rb.velocity = new Vector2(rb.velocity.x, jp);
+                rb.velocity = new Vector2(rb.velocity.x, JumpPower);
                 animator.SetTrigger("Jump");
                 
             }
-            else if(canDJ){
-                rb.velocity = new Vector2(rb.velocity.x, jp * 0.8f);
-                canDJ = false;
+            else if(canDoubleJump){
+                rb.velocity = new Vector2(rb.velocity.x, JumpPower * 0.8f);
+                canDoubleJump = false;
                 animator.SetTrigger("Jump");
                 
             }
@@ -55,7 +56,7 @@ public class PC2 : MonoBehaviour
             Dash();
         }
         if(isGrounded()){
-            canDJ = true;
+            canDoubleJump = true;
         }
 
         // if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f && canDJ){
@@ -83,8 +84,11 @@ public class PC2 : MonoBehaviour
             }
         }
 
+        //turns dash back on once grounded
+        if(isGrounded() == true){
+            usedDash = false;
+        }
         
-
     }
     private bool isGrounded(){
         Vector2 size = new Vector2(0.05f, 0.1f);
@@ -101,14 +105,16 @@ public class PC2 : MonoBehaviour
     }
 
     void Dash(){
-        rb.gravityScale = 0;
-        
-        isDashing = true;
-        animator.SetTrigger("Dash");
+        if(canDash && !isDashing && !usedDash){
+            rb.gravityScale = 0;
+            isDashing = true;
+            animator.SetTrigger("Dash");
+        }
     }
 
     void EndDash(){
         isDashing = false;
+        usedDash = true;
         rb.gravityScale = 1;
     }
 
