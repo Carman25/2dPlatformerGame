@@ -35984,7 +35984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: jp
-      value: 4.05
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
+      propertyPath: dashUnlocked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: canDash

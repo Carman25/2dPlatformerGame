@@ -116,6 +116,7 @@ public class PC2 : MonoBehaviour
         isDashing = false;
         usedDash = true;
         rb.gravityScale = 1;
+        Invoke("setCanDash", 2.25f);
     }
 
     void StartDashMove(){
@@ -131,6 +132,9 @@ public class PC2 : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
+    void setCanDash(){
+        canDash = true;
+    }
 
 
 }
