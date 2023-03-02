@@ -140,7 +140,7 @@ public class PC2 : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
-    void setCanDash(){
+    private void setCanDash(){
         canDash = true;
     }
 
@@ -148,6 +148,12 @@ public class PC2 : MonoBehaviour
         isStart = false;
     }
 
+    public bool getDash(){
+        return canDash;
+    }
 
+    public void setDash(bool dash){
+        canDash = dash;
+    }
 }
 
