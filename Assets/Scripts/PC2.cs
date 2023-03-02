@@ -7,12 +7,13 @@ using UnityEngine.InputSystem;
 public class PC2 : MonoBehaviour
 {
     private float horizontal;
-    public float speed, JumpPower, startTime;
+    public float speed, JumpPower, startTime, maxDistance;
     SpriteRenderer spriteRenderer;
     Animator animator;
     private bool canMove, canDoubleJump, isDashing, usedDash, isStart;
     public bool canDash;
     public bool hardMode;
+    public Vector3 boxSize;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -32,11 +33,8 @@ public class PC2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         isStart = true;
         Invoke("setIsStart", startTime);
-
-
     }
     void Update(){
-
         if(!isStart){
             horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -64,11 +62,6 @@ public class PC2 : MonoBehaviour
             if(isGrounded()){
                 canDoubleJump = true;
             }
-
-            // if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f && canDJ){
-            //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 1.5f);
-            //     canDJ = false;
-            // }}
         }
     }
     void FixedUpdate(){
@@ -98,9 +91,21 @@ public class PC2 : MonoBehaviour
         }
         
     }
+
+    void OnDrawGizmos(){
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(groundCheck.transform.position, boxSize);
+    }
+
     private bool isGrounded(){
-        Vector2 size = new Vector2(0.1f, 0.1f);
-        return Physics2D.OverlapBox(groundCheck.position, size, 0f, groundLayer);
+        if(Physics2D.BoxCast(groundCheck.transform.position, boxSize, 0, -groundCheck.transform.up, maxDistance, groundLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void Flip(float n){
