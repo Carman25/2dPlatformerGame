@@ -101,6 +101,7 @@ public class PC2 : MonoBehaviour
         if(Physics2D.BoxCast(groundCheck.transform.position, boxSize, 0, -groundCheck.transform.up, maxDistance, groundLayer))
         {
             return true;
+            
         }
         else
         {

@@ -200,12 +200,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  JumpPower: 4.1
+  JumpPower: 4
   startTime: 0
-  maxDistance: 0.3
+  maxDistance: 0.1
   canDash: 0
   hardMode: 0
-  boxSize: {x: 0.25, y: 0.1, z: 0}
+  boxSize: {x: 0.2, y: 0.08, z: 0}
   rb: {fileID: 2761147777008825619}
   groundCheck: {fileID: 1679096997432274188}
   groundLayer:
