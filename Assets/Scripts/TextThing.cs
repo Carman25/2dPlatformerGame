@@ -8,7 +8,7 @@ using System.Collections;
 public class TextThing : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    public string GameName, text1, text2, text3, text4, text5, text6, text7;
+    public string text1, text2, text3, text4, text5, text6, text7;
     private string[] words;
     private int ling;
     public int numRounds;
