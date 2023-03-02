@@ -223,21 +223,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8805908120580561106, guid: 40279452028834135bad9f3974a4b876, type: 3}
-      propertyPath: isInRange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805908120580561106, guid: 40279452028834135bad9f3974a4b876, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1424934498}
-    - target: {fileID: 8805908120580561106, guid: 40279452028834135bad9f3974a4b876, type: 3}
-      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805908120580561106, guid: 40279452028834135bad9f3974a4b876, type: 3}
-      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: openChest
-      objectReference: {fileID: 0}
     - target: {fileID: 8928476841093139079, guid: 40279452028834135bad9f3974a4b876, type: 3}
       propertyPath: m_Name
       value: Interactables
@@ -22004,27 +21992,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &520925012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8928476841093139079, guid: 40279452028834135bad9f3974a4b876, type: 3}
-  m_PrefabInstance: {fileID: 267153508}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &520925015
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520925012}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0051641017, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.19014837
 --- !u!1 &645940141
 GameObject:
   m_ObjectHideFlags: 0
