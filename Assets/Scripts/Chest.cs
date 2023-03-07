@@ -19,7 +19,8 @@ public class Chest : MonoBehaviour
         
     }
 
-    void openChest(){
+    public void openChest(){
         playerController.setDash(true);
+        print("player can now dash");
     }
 }

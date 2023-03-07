@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955b694705b6f4a6abfc42c381c392be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 1
+  isInRange: 0
   interactKey: 102
   interactAction:
     m_PersistentCalls:

@@ -2425,7 +2425,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 51933633473099888, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: m_Radius
-      value: 0.6
+      value: 0.30998424
+      objectReference: {fileID: 0}
+    - target: {fileID: 51933633473099888, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.1543288
       objectReference: {fileID: 0}
     - target: {fileID: 1979658728821879162, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: m_RootOrder
@@ -2474,6 +2478,10 @@ PrefabInstance:
     - target: {fileID: 3253857826405062559, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: m_Name
       value: Flag
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461698351599094228, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: isInRange
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4461698351599094228, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
