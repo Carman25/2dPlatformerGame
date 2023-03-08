@@ -2495,6 +2495,22 @@ PrefabInstance:
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FlagCon, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -558401600, guid: 4ee77349fd41541caaea1842c425fab8, type: 3}
+    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
 --- !u!1 &1335529284
@@ -24320,6 +24336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Wiz
       objectReference: {fileID: 0}
+    - target: {fileID: 2344881509070443648, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: jp
       value: 4
@@ -24346,11 +24366,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904374211035513048, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5904374211035513048, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.42
+      value: 13.3
       objectReference: {fileID: 0}
     - target: {fileID: 5904374211035513048, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: m_LocalPosition.z
