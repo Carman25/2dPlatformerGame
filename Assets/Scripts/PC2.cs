@@ -34,11 +34,12 @@ public class PC2 : MonoBehaviour
         isStart = true;
         Invoke("setIsStart", startTime);
     }
+
     void Update(){
         if(!isStart){
             horizontal = Input.GetAxisRaw("Horizontal");
 
-            if(Input.GetButtonDown("Jump")){
+            if(Input.GetButtonDown("Jump") && !isDashing){
                 if(isGrounded()){
                     rb.velocity = new Vector2(rb.velocity.x, JumpPower);
                     animator.SetTrigger("Jump");
@@ -48,7 +49,6 @@ public class PC2 : MonoBehaviour
                     rb.velocity = new Vector2(rb.velocity.x, JumpPower * 0.8f);
                     canDoubleJump = false;
                     animator.SetTrigger("Jump");
-                    
                 }
                 else{
                     
@@ -120,8 +120,6 @@ public class PC2 : MonoBehaviour
 
     void Dash(){
         if(canDash && !isDashing && !usedDash){
-            rb.gravityScale = 0;
-            isDashing = true;
             animator.SetTrigger("Dash");
         }
     }
@@ -134,11 +132,14 @@ public class PC2 : MonoBehaviour
     }
 
     void StartDashMove(){
+        rb.gravityScale = 0;
+
         if(!spriteRenderer.flipX){
             rb.velocity = new Vector2(speed * 1.0f, 0);
         }else{
             rb.velocity = new Vector2(speed * -1.0f, 0);
         }
+        isDashing = true;
 
     }
 
