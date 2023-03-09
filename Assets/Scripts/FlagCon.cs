@@ -7,6 +7,7 @@ public class FlagCon : MonoBehaviour
 {
     private GameObject Player;
     public GameObject EndFlag;
+    public int sceneToLoad;
     public Camera CameraOn, CameraOff;
 
     // Start is called before the first frame update
@@ -22,7 +23,11 @@ public class FlagCon : MonoBehaviour
     }
 
     public void flagInteract(){
-        SceneManager.LoadScene(2);
+
+    }
+
+    public void sceneChange() {
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void TeleportPlayer(){
