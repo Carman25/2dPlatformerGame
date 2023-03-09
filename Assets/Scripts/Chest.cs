@@ -7,10 +7,12 @@ public class Chest : MonoBehaviour
 
 
     private PC2 playerController;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start(){
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PC2>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,6 @@ public class Chest : MonoBehaviour
 
     public void openChest(){
         playerController.setDash(true);
-        print("player can now dash");
+        animator.SetBool("OpenChest", true);
     }
 }
