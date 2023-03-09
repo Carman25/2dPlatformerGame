@@ -89,7 +89,7 @@ public class PC2 : MonoBehaviour
                 usedDash = false;
             }
         }
-        
+        animator.SetBool("isGrounded", isGrounded());
     }
 
     void OnDrawGizmos(){
