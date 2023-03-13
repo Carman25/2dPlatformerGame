@@ -11,8 +11,7 @@ public class PC2 : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
     private bool canMove, canDoubleJump, isDashing, usedDash, isStart;
-    public bool canDash;
-    public bool hardMode;
+    public bool canDash, hardMode, devMode;
     public Vector3 boxSize;
 
     [SerializeField] private Rigidbody2D rb;
@@ -20,6 +19,15 @@ public class PC2 : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     void Start(){
+        if(devMode){
+            canDash = true;
+            hardMode = false;
+            canDoubleJump = true;
+            canMove = true;
+            startTime = 0;  
+        }
+
+
         if(hardMode){
             JumpPower = 4.0f;
         }else{
@@ -33,10 +41,11 @@ public class PC2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         isStart = true;
         Invoke("setIsStart", startTime);
+
     }
 
     void Update(){
-        if(!isStart){
+        if(!isStart || devMode){
             horizontal = Input.GetAxisRaw("Horizontal");
 
             if(Input.GetButtonDown("Jump") && !isDashing){
@@ -59,13 +68,13 @@ public class PC2 : MonoBehaviour
             if(Input.GetButtonDown("Dash")){
                 Dash();
             }
-            if(isGrounded()){
+            if(isGrounded() || devMode){
                 canDoubleJump = true;
             }
         }
     }
     void FixedUpdate(){
-        if(!isStart){
+        if(!isStart || devMode){
             if(!isDashing){
                 if(isGrounded() == false){
                     rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
@@ -85,7 +94,7 @@ public class PC2 : MonoBehaviour
             }
 
             //turns dash back on once grounded
-            if(isGrounded() == true){
+            if(isGrounded() == true || devMode){
                 usedDash = false;
             }
         }
