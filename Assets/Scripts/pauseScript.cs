@@ -9,6 +9,8 @@ public class pauseScript : MonoBehaviour
     void Start()
     {
         isPaused = false;
+        GameObject.Find("PausePanel").GetComponent<CanvasRenderer>().SetAlpha(0);
+
     }
 
     // Update is called once per frame
@@ -17,9 +19,12 @@ public class pauseScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P) && !isPaused){
             Time.timeScale = 0;
             isPaused = !isPaused;
+            GameObject.Find("PausePanel").GetComponent<CanvasRenderer>().SetAlpha(1);
+
         }else if(Input.GetKeyDown(KeyCode.P) && isPaused){
             Time.timeScale = 1;
             isPaused = !isPaused;
+            GameObject.Find("PausePanel").GetComponent<CanvasRenderer>().SetAlpha(0);
         }
     }
 }
