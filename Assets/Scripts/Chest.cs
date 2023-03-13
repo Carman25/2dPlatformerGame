@@ -5,7 +5,6 @@ using UnityEngine;
 public class Chest : MonoBehaviour
 {
 
-
     private PC2 playerController;
     private Animator animator;
 
@@ -18,11 +17,11 @@ public class Chest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void openChest(){
         playerController.setDash(true);
         animator.SetBool("OpenChest", true);
     }
+
 }

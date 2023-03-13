@@ -22479,7 +22479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1979658728821879162, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.787
+      value: 13.78
       objectReference: {fileID: 0}
     - target: {fileID: 1979658728821879162, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22594,6 +22594,14 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 49456366014143428, guid: 53d68763e25a74d2bb4056884a335719, type: 3}
+      propertyPath: newSprite
+      value: 
+      objectReference: {fileID: 2046290135, guid: 5de244284481b4d5784f0bc73ccea35a, type: 3}
+    - target: {fileID: 49456366014143428, guid: 53d68763e25a74d2bb4056884a335719, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1424934501}
     - target: {fileID: 3356972384228487930, guid: 53d68763e25a74d2bb4056884a335719, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -29367,6 +29375,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &1424934501 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: -6596941764752337157, guid: 53d68763e25a74d2bb4056884a335719, type: 3}
+  m_PrefabInstance: {fileID: 673631773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1567603129
 PrefabInstance:
   m_ObjectHideFlags: 0
