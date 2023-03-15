@@ -25770,26 +25770,6 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
-      propertyPath: canDash
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
-      propertyPath: hardMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
-      propertyPath: JumpPower
-      value: 4.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
-      propertyPath: boxSize.x
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
-      propertyPath: boxSize.y
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: dashUnlocked
       value: 1
       objectReference: {fileID: 0}

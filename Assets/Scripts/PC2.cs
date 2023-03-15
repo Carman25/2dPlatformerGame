@@ -198,6 +198,7 @@ public class PC2 : MonoBehaviour
     public void OnCollisionExit2D(Collision2D other){
         if(other.gameObject.CompareTag("MovingTiles")){
             isOnMovingPlatform = false;
+            movingPlatformSpeed = 0;
         }
         
     }
