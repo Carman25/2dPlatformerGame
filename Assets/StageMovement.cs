@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class StageMovement : MonoBehaviour
 {
-    private int sign;
-    public float speed;
+    public int sign;
+    public float speed, moveTime;
     private Rigidbody2D rb;
     void Start()
     {
-        sign = -1; 
+        
         changeSign();
         rb = GetComponent<Rigidbody2D>();
-        speed = 0.7f;
+        
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class StageMovement : MonoBehaviour
     }
     void changeSign(){
         sign = -sign;
-        Invoke("changeSign", 1.5f);
+        Invoke("changeSign", moveTime);
     }
 
     public float platformVel(){

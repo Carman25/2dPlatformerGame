@@ -177,13 +177,11 @@ public class PC2 : MonoBehaviour
         canDash = dash;
     }
     public void OnCollisionStay2D(Collision2D other){
-        // print("hello");
         if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
             StageMovement sm = other.gameObject.GetComponent<StageMovement>();
             if(sm != null){
                 rb.velocity = new Vector2(sm.platformVel(), rb.velocity.y);
             }
-            print(sm.platformVel());
         }
 
     }
@@ -193,7 +191,6 @@ public class PC2 : MonoBehaviour
             isOnMovingPlatform = true;
             StageMovement sm = other.gameObject.GetComponent<StageMovement>();
             movingPlatformSpeed = sm.platformVel();
-            print("platform time");
 
         }
     }
