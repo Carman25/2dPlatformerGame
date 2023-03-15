@@ -2568,26 +2568,6 @@ PrefabInstance:
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: FlagCon, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
-      propertyPath: m_Size.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -558401600, guid: 4ee77349fd41541caaea1842c425fab8, type: 3}
-    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8142458061793555702, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
 --- !u!1 &1335529284
