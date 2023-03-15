@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 
 public class PC2 : MonoBehaviour
 {
-    private float horizontal;
+    private float horizontal, movingPlatformSpeed;
     public float speed, JumpPower, startTime, maxDistance;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    private bool canMove, canDoubleJump, isDashing, usedDash, isStart;
+    private bool canDoubleJump, isDashing, usedDash, isStart, isOnMovingPlatform;
     public bool canDash, hardMode, devMode;
     public Vector3 boxSize;
 
@@ -23,7 +23,6 @@ public class PC2 : MonoBehaviour
             canDash = true;
             hardMode = false;
             canDoubleJump = true;
-            canMove = true;
             startTime = 0;  
         }
 
@@ -33,6 +32,7 @@ public class PC2 : MonoBehaviour
         }else{
             JumpPower = 4.1f;
         }
+        movingPlatformSpeed = 0;
         animator = GetComponent<Animator>();
         canDoubleJump = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -40,6 +40,7 @@ public class PC2 : MonoBehaviour
         usedDash = false;
         rb = GetComponent<Rigidbody2D>();
         isStart = true;
+        isOnMovingPlatform = false;
         Invoke("setIsStart", startTime);
 
     }
@@ -68,7 +69,7 @@ public class PC2 : MonoBehaviour
             if(Input.GetButtonDown("Dash")){
                 Dash();
             }
-            if(isGrounded() || devMode){
+            if(isGrounded()){
                 canDoubleJump = true;
             }
         }
@@ -82,14 +83,18 @@ public class PC2 : MonoBehaviour
                     Flip(horizontal);
                 }
                 else{
-                    rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-                    if(horizontal != 0){
-                        animator.SetBool("isMoving", true);
-                        Flip(horizontal);
+                    if(isOnMovingPlatform){
+                        rb.velocity = new Vector2(horizontal * speed + movingPlatformSpeed, rb.velocity.y);
+                    }else{
+                        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+                        if(horizontal != 0){
+                            animator.SetBool("isMoving", true);
+                            Flip(horizontal);
+                        }
+                        else{
+                            animator.SetBool("isMoving", false);
+                        } 
                     }
-                    else{
-                        animator.SetBool("isMoving", false);
-                    } 
                 }
             }
 
@@ -171,5 +176,32 @@ public class PC2 : MonoBehaviour
     public void setDash(bool dash){
         canDash = dash;
     }
-}
+    public void OnCollisionStay2D(Collision2D other){
+        // print("hello");
+        if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
+            StageMovement sm = other.gameObject.GetComponent<StageMovement>();
+            if(sm != null){
+                rb.velocity = new Vector2(sm.platformVel(), rb.velocity.y);
+            }
+            print(sm.platformVel());
+        }
 
+    }
+
+    public void OnCollisionEnter2D(Collision2D other){
+        if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
+            isOnMovingPlatform = true;
+            StageMovement sm = other.gameObject.GetComponent<StageMovement>();
+            movingPlatformSpeed = sm.platformVel();
+            print("platform time");
+
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D other){
+        if(other.gameObject.CompareTag("MovingTiles")){
+            isOnMovingPlatform = false;
+        }
+        
+    }
+}
