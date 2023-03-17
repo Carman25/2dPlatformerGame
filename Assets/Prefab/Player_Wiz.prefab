@@ -123,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03724897, y: -0.7372465}
+  m_Offset: {x: 0.026587486, y: -0.19320846}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2532923, y: 0.4851017}
+  m_Size: {x: 0.933403, y: 1.5731778}
   m_EdgeRadius: 0
 --- !u!50 &2761147777008825619
 Rigidbody2D:
@@ -201,11 +201,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   JumpPower: 4.1
-  startTime: 5
+  startTime: 0
   maxDistance: 0.1
   canDash: 0
   hardMode: 0
-  devMode: 1
+  devMode: 0
   boxSize: {x: 0.15, y: 0.03, z: 0}
   rb: {fileID: 2761147777008825619}
   groundCheck: {fileID: 1679096997432274188}
