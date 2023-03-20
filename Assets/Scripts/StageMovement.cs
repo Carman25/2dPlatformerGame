@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class StageMovement : MonoBehaviour
 {
-    public int sign;
+    private int sign;
     public float speed, speed2, moveTime;
     private Rigidbody2D rb;
     void Start()
     {
-        
+        sign = -1;
         changeSign();
         rb = GetComponent<Rigidbody2D>();
         

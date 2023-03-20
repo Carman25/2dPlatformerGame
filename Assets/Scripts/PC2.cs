@@ -180,7 +180,7 @@ public class PC2 : MonoBehaviour
         if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
             StageMovement sm = other.gameObject.GetComponent<StageMovement>();
             if(sm != null){
-                rb.velocity = new Vector2(sm.platformVel(), rb.velocity.y);
+                rb.velocity = new Vector2(sm.platformVel() + rb.velocity.x, rb.velocity.y);
             }
         }
 
