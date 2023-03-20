@@ -50,7 +50,7 @@ public class PC2 : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal");
 
             if(Input.GetButtonDown("Jump") && !isDashing){
-                if(isGrounded()){
+                if(isGrounded() || devMode){
                     rb.velocity = new Vector2(rb.velocity.x, JumpPower);
                     animator.SetTrigger("Jump");
                     

@@ -30,11 +30,21 @@ public class FlagCon : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 
+    public void finishLevel() {
+        updateSceneAvailability(true);
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
     public void TeleportPlayer(){
         Player.transform.position = EndFlag.transform.position;
         if(CameraOn != null && CameraOff != null){
             CameraOn.enabled = true;
             CameraOff.enabled = false;
         }
+    }
+
+    public void updateSceneAvailability(bool available) {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().setLevelAvailability(currentSceneIndex, available);
     }
 }

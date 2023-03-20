@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    // MainMenuCanv mainMenuCanv = new MainMenuCanv();
+    public bool[] levelEnableTracker;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        levelEnableTracker = new bool[4];
+        levelEnableTracker[0] = true;
+        levelEnableTracker[1] = true;
+    }
+
     public void LoadNextScene() {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
@@ -15,16 +26,24 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
+    //, MainMenuCanv mainMenuCanv
+    public void LoadSceneIfUnlocked(int sceneIndex) {
+        if(getLevelAvailability(sceneIndex)) {
+            // int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(sceneIndex);
+        }   
+    }
+
     public void LoadMenuScene() {
         SceneManager.LoadScene(0);
     }
+     public void setLevelAvailability(int index, bool available) {
+        levelEnableTracker[index] = available;
+    }
 
-    // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
-
+    public bool getLevelAvailability(int index) {
+        return levelEnableTracker[index];
+    }
     // Update is called once per frame
     // void Update()
     // {
