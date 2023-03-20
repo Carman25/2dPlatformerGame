@@ -103,7 +103,12 @@ public class PC2 : MonoBehaviour
                 usedDash = false;
             }
         }
-        animator.SetBool("isGrounded", isGrounded());
+        if(isGrounded() || isOnMovingPlatform){
+            animator.SetBool("isGrounded", true);
+        }else{
+            animator.SetBool("isGrounded", false);
+        }
+
     }
 
     void OnDrawGizmos(){
