@@ -80,20 +80,21 @@ public class PC2 : MonoBehaviour
                 if(isGrounded() == false){
                     rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
                     animator.SetBool("isMoving", false);
+                    
                     Flip(horizontal);
                 }
                 else{
+                    if(horizontal != 0){
+                            animator.SetBool("isMoving", true);
+                            Flip(horizontal);
+                        }
+                    else{
+                            animator.SetBool("isMoving", false);
+                    } 
                     if(isOnMovingPlatform){
                         rb.velocity = new Vector2(horizontal * speed + movingPlatformSpeed, rb.velocity.y);
                     }else{
                         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-                        if(horizontal != 0){
-                            animator.SetBool("isMoving", true);
-                            Flip(horizontal);
-                        }
-                        else{
-                            animator.SetBool("isMoving", false);
-                        } 
                     }
                 }
             }
