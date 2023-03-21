@@ -34,6 +34,12 @@ public class SceneLoader : MonoBehaviour
         }   
     }
 
+    // TODO: Bug fix, doesn't undo the pause menu or remove the button when scene respawned
+    public void reloadScene() {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
     public void LoadMenuScene() {
         SceneManager.LoadScene(0);
     }

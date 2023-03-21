@@ -27,20 +27,24 @@ public class pauseScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P) && !isPaused){
             Time.timeScale = 0;
             isPaused = !isPaused;
-            GameObject.Find("PausePanel").GetComponent<CanvasRenderer>().SetAlpha(1);
-            // setActive(true);
-            // GameObject.Find("Restart Level").SetActive(true);
-            GameObject.Find("RestartLevel").GetComponent<CanvasRenderer>().SetAlpha(1);
-            GameObject.Find("RestartText").GetComponent<CanvasRenderer>().SetAlpha(1);
+            setComponentsVisible(1);
         }
         else if(Input.GetKeyDown(KeyCode.P) && isPaused){
             Time.timeScale = 1;
             isPaused = !isPaused;
-            GameObject.Find("PausePanel").GetComponent<CanvasRenderer>().SetAlpha(0);
-            // setActive(false);
-            // GameObject.Find("Restart Level").SetActive(false);
-            GameObject.Find("RestartLevel").GetComponent<CanvasRenderer>().SetAlpha(0);
-            GameObject.Find("RestartText").GetComponent<CanvasRenderer>().SetAlpha(0);
+            setComponentsVisible(0);
         }
+    }
+
+    public void setComponentsVisible(int setState) {
+        GameObject.Find("PausePanel").GetComponent<CanvasRenderer>().SetAlpha(setState);
+        // setActive(true);
+        // GameObject.Find("Restart Level").SetActive(true);
+        GameObject.Find("RestartLevel").GetComponent<CanvasRenderer>().SetAlpha(setState);
+        GameObject.Find("RestartText").GetComponent<CanvasRenderer>().SetAlpha(setState);
+    }
+
+    public void timeScaleSet(int setState) {
+        Time.timeScale = setState;
     }
 }
