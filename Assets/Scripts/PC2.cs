@@ -187,6 +187,7 @@ public class PC2 : MonoBehaviour
             if(sm != null){
                 rb.velocity = new Vector2(sm.platformVel() + rb.velocity.x, rb.velocity.y);
             }
+            movingPlatformSpeed = sm.platformVel();
         }
 
     }
@@ -194,8 +195,8 @@ public class PC2 : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D other){
         if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
             isOnMovingPlatform = true;
-            StageMovement sm = other.gameObject.GetComponent<StageMovement>();
-            movingPlatformSpeed = sm.platformVel();
+            
+            
 
         }
     }
