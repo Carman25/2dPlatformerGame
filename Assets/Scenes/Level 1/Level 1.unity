@@ -2743,9 +2743,9 @@ MonoBehaviour:
   text: {fileID: 1335529287}
   text1: Welcome to Jumpty Dumpty
   text2: Your Objective Is to Reach the Flag at the Top
-  text3: Use A/D & L/R Arrows to move
-  text4: Use Space to Jump and Double Jump
-  text5: Press F To Interact
+  text3: Press F To Interact
+  text4: Use A/D or L/R Arrows to Move
+  text5: Space to Jump
   text6: Good Luck!
   text7: 
   numRounds: 7
