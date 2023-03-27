@@ -7,10 +7,15 @@ public class SceneLoader : MonoBehaviour
 {
     // MainMenuCanv mainMenuCanv = new MainMenuCanv();
     public bool[] levelEnableTracker;
+    private static bool initialized = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(!initialized) {
+            initialized = true;
+            print("bruh moment");
+        }
         levelEnableTracker = new bool[4];
         levelEnableTracker[0] = true;
         levelEnableTracker[1] = true;

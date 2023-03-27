@@ -14,11 +14,8 @@ public class pauseScript : MonoBehaviour
         // GameObject.Find("PauseMenu").SetActive(true);
         // GameObject.Find("PausePanel").GetComponent<Image>();
         // Image.SetActive(true);
-        GameObject.Find("PausePanel").GetComponent<CanvasRenderer>().SetAlpha(0);
-
         // GameObject.Find("Restart Level").SetActive(false);
-        GameObject.Find("RestartLevel").GetComponent<CanvasRenderer>().SetAlpha(0);
-        GameObject.Find("RestartText").GetComponent<CanvasRenderer>().SetAlpha(0);
+        setComponentsVisible(0);
     }
 
     // Update is called once per frame
@@ -42,6 +39,8 @@ public class pauseScript : MonoBehaviour
         // GameObject.Find("Restart Level").SetActive(true);
         GameObject.Find("RestartLevel").GetComponent<CanvasRenderer>().SetAlpha(setState);
         GameObject.Find("RestartText").GetComponent<CanvasRenderer>().SetAlpha(setState);
+        GameObject.Find("ReturnToMenu").GetComponent<CanvasRenderer>().SetAlpha(setState);
+        GameObject.Find("MainMenuText").GetComponent<CanvasRenderer>().SetAlpha(setState);
     }
 
     public void timeScaleSet(int setState) {
