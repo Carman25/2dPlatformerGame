@@ -46,6 +46,7 @@ public class PC2 : MonoBehaviour
     }
 
     void Update(){
+        // bool hi = JumpRing2.getDJ();
         if(!isStart || devMode){
             horizontal = Input.GetAxisRaw("Horizontal");
 
