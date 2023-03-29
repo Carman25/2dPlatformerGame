@@ -9,12 +9,12 @@ public class TextThing : MonoBehaviour
     public TextMeshProUGUI text;
     public string text1, text2, text3, text4, text5, text6, text7;
     private string[] words;
-    private int ling;
+    private int WordsArrCounter;
     public int numRounds;
     // Start is called before the first frame update
     void Start()
     {
-        ling = 0;
+        WordsArrCounter = 0;
         words = new string[7];
         words[0] = text1;
         words[1] = text2;
@@ -39,8 +39,8 @@ public class TextThing : MonoBehaviour
     }
 
     void changeText(){
-        text.text = words[ling];
-        ling ++;
+        text.text = words[WordsArrCounter];
+        WordsArrCounter ++;
     }
 
     
