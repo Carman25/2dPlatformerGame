@@ -6,19 +6,21 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     // MainMenuCanv mainMenuCanv = new MainMenuCanv();
-    public bool[] levelEnableTracker;
-    private static bool initialized = false;
+    public static bool[] levelEnableTracker;
+    // private static bool initialized = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(!initialized) {
-            initialized = true;
-            print("bruh moment");
-        }
-        levelEnableTracker = new bool[4];
+        // if(!initialized) {
+        //     initialized = true;
+        print("bruh moment");
+        levelEnableTracker = new bool[5];
         levelEnableTracker[0] = true;
         levelEnableTracker[1] = true;
+        // foreach (bool item in levelEnableTracker){
+        //     print(item);
+        // }
     }
 
     public void LoadNextScene() {

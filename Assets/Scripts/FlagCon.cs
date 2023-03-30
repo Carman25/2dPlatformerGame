@@ -31,7 +31,7 @@ public class FlagCon : MonoBehaviour
     }
 
     public void finishLevel() {
-        updateSceneAvailability(true);
+        updateSceneAvailability(true, sceneToLoad);
         SceneManager.LoadScene(sceneToLoad);
     }
 
@@ -44,8 +44,8 @@ public class FlagCon : MonoBehaviour
             
     }
 
-    public void updateSceneAvailability(bool available) {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().setLevelAvailability(currentSceneIndex, available);
+    public void updateSceneAvailability(bool available, int levelIndex) {
+        // int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().setLevelAvailability(levelIndex, available);
     }
 }
