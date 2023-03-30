@@ -18,6 +18,7 @@ public class HUD : MonoBehaviour
     {
         currentCooldown = cooldownTime;
         fillImage.fillAmount = 0f;
+
     }
 
     // Update is called once per frame
@@ -30,8 +31,6 @@ public class HUD : MonoBehaviour
             fillImage.fillAmount = currentFillAmount;
             
 
-            //seems to be visual bug in inspector whether bc of order or not being turned off or referenced properly
-            Debug.Log("Current fill amount: " + currentFillAmount);
         }
         else
         {
