@@ -22798,7 +22798,7 @@ GameObject:
   - component: {fileID: 1328987645}
   - component: {fileID: 1328987648}
   m_Layer: 5
-  m_Name: SceneSwitchButton2 (1)
+  m_Name: SceneSwitchButton3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22871,7 +22871,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 823781016}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneIfUnlocked
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
