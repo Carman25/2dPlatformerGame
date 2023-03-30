@@ -32,11 +32,6 @@ public class HUD : MonoBehaviour
             
 
         }
-        else
-        {
-            currentCooldown = 0f;
-            fillImage.fillAmount = 0f;
-        }
     }
 
     public void ResetCooldown()
