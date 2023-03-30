@@ -37,8 +37,11 @@ public class FlagCon : MonoBehaviour
 
     public void TeleportPlayer(){
         Player.transform.position = EndFlag.transform.position;
-            CameraOn.enabled = true;
-            CameraOff.enabled = false;
+            if(CameraOn != null && CameraOff != null){
+                CameraOn.enabled = true;
+                CameraOff.enabled = false;
+            }
+            
     }
 
     public void updateSceneAvailability(bool available) {
