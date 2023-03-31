@@ -9,6 +9,7 @@ public class FlagCon : MonoBehaviour
     public GameObject EndFlag;
     public int sceneToLoad;
     public Camera CameraOn, CameraOff;
+    public bool SwitchesCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +38,12 @@ public class FlagCon : MonoBehaviour
 
     public void TeleportPlayer(){
         Player.transform.position = EndFlag.transform.position;
+            if(SwitchesCamera){
                 CameraOn.enabled = true;
                 CameraOff.enabled = false;
+            }
             
+
     }
 
     public void updateSceneAvailability(bool available, int levelIndex) {

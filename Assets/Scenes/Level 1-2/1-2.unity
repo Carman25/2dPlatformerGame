@@ -204,6 +204,10 @@ PrefabInstance:
       propertyPath: CameraOff
       value: 
       objectReference: {fileID: 645940144}
+    - target: {fileID: 409072701935681635, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: SwitchesCamera
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1979658728821879162, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -22926,6 +22930,10 @@ PrefabInstance:
       propertyPath: CameraOff
       value: 
       objectReference: {fileID: 1331291871}
+    - target: {fileID: 409072701935681635, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: SwitchesCamera
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1979658728821879162, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: m_RootOrder
       value: 9

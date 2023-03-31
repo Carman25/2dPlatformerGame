@@ -41,7 +41,7 @@ public class JumpRing2 : MonoBehaviour
     }
 
     public void jumping(){
-        if(canDJ = true){
+        if(canDJ == true){
             rb.velocity = new Vector2(rb.velocity.x, JumpPower);
             animator.SetTrigger("Jump");
         }
