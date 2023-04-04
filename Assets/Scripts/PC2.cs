@@ -104,7 +104,7 @@ public class PC2 : MonoBehaviour
 
             //turns dash back on once grounded
             if(isGrounded() == true || devMode){
-                usedDash = false;
+                // usedDash = false;
             }
         }
         if(isGrounded() || isOnMovingPlatform){
@@ -142,9 +142,10 @@ public class PC2 : MonoBehaviour
     }
 
     void Dash(){
-        if(canDash && !isDashing && !usedDash){
+        if(canDash && !isDashing){
             animator.SetTrigger("Dash");
             dashHud.Reset();
+            canDash = false;
         }
     }
 
