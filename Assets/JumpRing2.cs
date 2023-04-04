@@ -31,9 +31,9 @@ public class JumpRing2 : MonoBehaviour
     void OnTriggerEnter2D(Collider2D CollisionCheck)
      {
          if (CollisionCheck.gameObject.tag == "Player") 
-             {
-             canDJ = true;
-               } 
+            {
+                jumping();
+            } 
      }
 
     public bool getDJ(){
@@ -41,9 +41,11 @@ public class JumpRing2 : MonoBehaviour
     }
 
     public void jumping(){
-        if(canDJ == true){
-            rb.velocity = new Vector2(rb.velocity.x, JumpPower);
-            animator.SetTrigger("Jump");
-        }
+        // if(canDJ == false){
+        //     rb.velocity = new Vector2(rb.velocity.x, JumpPower);
+        //     animator.SetTrigger("Jump");
+        //     canDJ = true;
+        // }
+        Player.GetComponent<PC2>().OutsideJump();
     }
 }

@@ -18,15 +18,16 @@ public class HUD : MonoBehaviour
     {
         currentCooldown = cooldownTime;
         fillImage.fillAmount = 0f;
+        Reset();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentCooldown > 0f)
+        if (fillImage.fillAmount < 1)
         {
-            currentCooldown -= Time.deltaTime;
+            // currentCooldown -= Time.deltaTime;
             currentFillAmount = Mathf.Clamp01(currentFillAmount + fillSpeed * Time.deltaTime);
             fillImage.fillAmount = currentFillAmount;
             
@@ -34,9 +35,11 @@ public class HUD : MonoBehaviour
         }
     }
 
-    public void ResetCooldown()
+    public void Reset()
     {
-        currentCooldown = cooldownTime;
+        fillImage.fillAmount = 0f;
+        // currentCooldown = cooldownTime;
+        currentFillAmount = 0;
     }
 
 }

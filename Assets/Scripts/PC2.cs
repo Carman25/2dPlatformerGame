@@ -13,6 +13,7 @@ public class PC2 : MonoBehaviour
     private bool canDoubleJump, isDashing, usedDash, isStart, isOnMovingPlatform;
     public bool canDash, hardMode, devMode;
     public Vector3 boxSize;
+    private HUD dashHud;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -42,6 +43,7 @@ public class PC2 : MonoBehaviour
         isStart = true;
         isOnMovingPlatform = false;
         Invoke("setIsStart", startTime);
+        dashHud = GameObject.FindGameObjectWithTag("DashHud").GetComponent<HUD>();
 
     }
 
@@ -142,6 +144,7 @@ public class PC2 : MonoBehaviour
     void Dash(){
         if(canDash && !isDashing && !usedDash){
             animator.SetTrigger("Dash");
+            dashHud.Reset();
         }
     }
 
@@ -209,5 +212,10 @@ public class PC2 : MonoBehaviour
             movingPlatformSpeed = 0;
         }
         
+    }
+
+    public void OutsideJump(){
+        rb.velocity = new Vector2(rb.velocity.x, JumpPower);
+        animator.SetTrigger("Jump");
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Chest
   - MovingTiles
   - HitBox
+  - DashHud
   layers:
   - Default
   - TransparentFX
