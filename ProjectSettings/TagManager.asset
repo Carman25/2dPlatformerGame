@@ -9,6 +9,7 @@ TagManager:
   - MovingTiles
   - HitBox
   - DashHud
+  - DashText
   layers:
   - Default
   - TransparentFX

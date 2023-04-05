@@ -10,7 +10,7 @@ public class PC2 : MonoBehaviour
     public float speed, JumpPower, startTime, maxDistance;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    private bool canDoubleJump, isDashing, usedDash, isStart, isOnMovingPlatform;
+    private bool canDoubleJump, isDashing, isStart, isOnMovingPlatform;
     public bool canDash, hardMode, devMode;
     public Vector3 boxSize;
     private HUD dashHud;
@@ -38,7 +38,6 @@ public class PC2 : MonoBehaviour
         canDoubleJump = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         isDashing = false;
-        usedDash = false;
         rb = GetComponent<Rigidbody2D>();
         isStart = true;
         isOnMovingPlatform = false;
@@ -102,10 +101,6 @@ public class PC2 : MonoBehaviour
                 }
             }
 
-            //turns dash back on once grounded
-            if(isGrounded() == true || devMode){
-                // usedDash = false;
-            }
         }
         if(isGrounded() || isOnMovingPlatform){
             animator.SetBool("isGrounded", true);
@@ -151,7 +146,6 @@ public class PC2 : MonoBehaviour
 
     void EndDash(){
         isDashing = false;
-        usedDash = true;
         rb.gravityScale = 1;
         Invoke("setCanDash", 2.25f);
     }
