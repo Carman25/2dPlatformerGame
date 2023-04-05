@@ -11,22 +11,22 @@ public class pauseScript : MonoBehaviour
     void Start()
     {
         isPaused = false;
-        mouseVisible = false;
+        // mouseVisible = false;
         // GameObject.Find("PauseMenu").SetActive(true);
         // GameObject.Find("PausePanel").GetComponent<Image>();
         // Image.SetActive(true);
         // GameObject.Find("Restart Level").SetActive(false);
         setComponentsVisible(0);
-        cursorSetVisible(mouseVisible);
+        cursorSetVisible(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            mouseVisible = !mouseVisible;
-            cursorSetVisible(mouseVisible);
-        }
+        // if(Input.GetKeyDown(KeyCode.Escape)){
+        //     mouseVisible = !mouseVisible;
+        //     // cursorSetVisible(mouseVisible);
+        // }
         if(Input.GetKeyDown(KeyCode.P) && !isPaused){
             Time.timeScale = 0;
             isPaused = !isPaused;

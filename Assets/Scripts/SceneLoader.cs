@@ -14,7 +14,7 @@ public class SceneLoader : MonoBehaviour
     {
         // if(!initialized) {
         //     initialized = true;
-        print("bruh moment");
+        // print("bruh moment");
         levelEnableTracker = new bool[5];
         levelEnableTracker[0] = true;
         levelEnableTracker[1] = true;
@@ -52,6 +52,7 @@ public class SceneLoader : MonoBehaviour
     }
      public void setLevelAvailability(int index, bool available) {
         levelEnableTracker[index] = available;
+        print("Set Level " + index + " available");
     }
 
     public bool getLevelAvailability(int index) {
