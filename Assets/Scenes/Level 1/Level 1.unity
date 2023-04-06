@@ -491,6 +491,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 797895135}
   zoom: -1
+  vertOffset: 0
+  Top: {fileID: 0}
+  Bottom: {fileID: 0}
 --- !u!114 &739398992 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6670678342830198328, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
@@ -24551,7 +24554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: hardMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3131797612829239330, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: startTime
