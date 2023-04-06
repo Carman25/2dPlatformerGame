@@ -33,6 +33,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneIndex);
     }
 
+    public void unlockAndLoadScene(int sceneIndex) {
+        setLevelAvailability(sceneIndex, true);
+        LoadSceneIfUnlocked(sceneIndex);
+    }
+
     //, MainMenuCanv mainMenuCanv
     public void LoadSceneIfUnlocked(int sceneIndex) {
         if(getLevelAvailability(sceneIndex)) {
