@@ -11,9 +11,10 @@ public class PC2 : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
     private bool canDoubleJump, isDashing, isStart, isOnMovingPlatform;
-    public bool canDash, hardMode, devMode;
+    public bool canDash, devMode;
     public Vector3 boxSize;
     private HUD dashHud;
+    private static bool hardMode;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -42,7 +43,10 @@ public class PC2 : MonoBehaviour
         isStart = true;
         isOnMovingPlatform = false;
         Invoke("setIsStart", startTime);
-        dashHud = GameObject.FindGameObjectWithTag("DashHud").GetComponent<HUD>();
+        if(GameObject.FindGameObjectWithTag("DashHud") != null){
+            dashHud = GameObject.FindGameObjectWithTag("DashHud").GetComponent<HUD>();
+        }
+        
 
     }
 
@@ -212,5 +216,15 @@ public class PC2 : MonoBehaviour
     public void OutsideJump(){
         rb.velocity = new Vector2(rb.velocity.x, JumpPower);
         animator.SetTrigger("Jump");
+    }
+
+    public void setHardMode(){
+        hardMode = true;
+        print("hardMode is set to " + hardMode);
+    }
+
+    public void setEasyMode(){
+        hardMode = false;
+        print("hardMode is set to " + hardMode);
     }
 }
