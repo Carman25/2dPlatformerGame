@@ -73014,7 +73014,7 @@ PrefabInstance:
       objectReference: {fileID: 639753722}
     - target: {fileID: 8805908120580561106, guid: 40279452028834135bad9f3974a4b876, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: sceneChange
+      value: finishLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8805908120580561106, guid: 40279452028834135bad9f3974a4b876, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
