@@ -22,7 +22,6 @@ public class PC2 : MonoBehaviour
 
     void Start(){
         if(devMode){
-            canDash = true;
             hardMode = false;
             canDoubleJump = true;
             startTime = 0;  
@@ -42,6 +41,7 @@ public class PC2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         isStart = true;
         isOnMovingPlatform = false;
+        canDash = true;
         Invoke("setIsStart", startTime);
         if(GameObject.FindGameObjectWithTag("DashHud") != null){
             dashHud = GameObject.FindGameObjectWithTag("DashHud").GetComponent<HUD>();
@@ -143,8 +143,12 @@ public class PC2 : MonoBehaviour
     void Dash(){
         if(canDash && !isDashing){
             animator.SetTrigger("Dash");
-            dashHud.Reset();
-            canDash = false;
+            if(dashHud != null){
+                dashHud.Reset();
+            }
+            if(!devMode){
+                canDash = false;
+            }
         }
     }
 
