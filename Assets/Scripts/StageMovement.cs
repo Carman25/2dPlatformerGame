@@ -9,23 +9,27 @@ public class StageMovement : MonoBehaviour
     private Rigidbody2D rb;
     void Start()
     {
-        sign = -1;
-        changeSign();
         rb = GetComponent<Rigidbody2D>();
-        
+        rb.velocity = new Vector2(speed, speed2);
+        sign = -1;
+        changeSign(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(speed * sign, speed2 * sign);
     }
     void changeSign(){
         sign = -sign;
         Invoke("changeSign", moveTime);
+        updateSpeed();
     }
 
     public float platformVel(){
         return speed * sign;
+    }
+
+    void updateSpeed() {
+        rb.velocity = new Vector2(speed * sign, speed2 * sign);
     }
 }
