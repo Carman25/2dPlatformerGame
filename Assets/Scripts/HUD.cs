@@ -17,8 +17,7 @@ public class HUD : MonoBehaviour
     void Start()
     {
         currentCooldown = cooldownTime;
-        fillImage.fillAmount = 0f;
-        Reset();
+        // fillImage.fillAmount = 0f;
 
     }
 
@@ -41,5 +40,6 @@ public class HUD : MonoBehaviour
         // currentCooldown = cooldownTime;
         currentFillAmount = 0;
     }
+
 
 }

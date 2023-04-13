@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   m_Sprite: {fileID: -1958030864, guid: cc0c3001f74ea45bbbcd4a2cb4cc113a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -123,6 +123,7 @@ MonoBehaviour:
   sceneToLoad: 0
   CameraOn: {fileID: 0}
   CameraOff: {fileID: 0}
+  SwitchesCamera: 0
 --- !u!1001 &6281732425479314395
 PrefabInstance:
   m_ObjectHideFlags: 0

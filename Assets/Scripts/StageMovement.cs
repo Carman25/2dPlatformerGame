@@ -5,7 +5,7 @@ using UnityEngine;
 public class StageMovement : MonoBehaviour
 {
     private int sign;
-    public float speed, speed2, moveTime;
+    public float xVel, yVel, moveTime, conveyorSpeed;
     private Rigidbody2D rb;
     void Start()
     {
@@ -18,14 +18,18 @@ public class StageMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(speed * sign, speed2 * sign);
+        rb.velocity = new Vector2(xVel * sign, yVel * sign);
     }
     void changeSign(){
         sign = -sign;
         Invoke("changeSign", moveTime);
     }
 
-    public float platformVel(){
-        return speed * sign;
+    public float platformXVel(){
+        return xVel * sign;
+    }
+
+    public float conSpeed(){
+        return conveyorSpeed;
     }
 }

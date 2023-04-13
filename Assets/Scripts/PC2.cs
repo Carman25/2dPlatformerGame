@@ -186,12 +186,23 @@ public class PC2 : MonoBehaviour
         canDash = dash;
     }
     public void OnCollisionStay2D(Collision2D other){
+
+        //moving platforms
         if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
             StageMovement sm = other.gameObject.GetComponent<StageMovement>();
             if(sm != null){
-                rb.velocity = new Vector2(sm.platformVel() + rb.velocity.x, rb.velocity.y);
+                rb.velocity = new Vector2(sm.platformXVel() + rb.velocity.x, rb.velocity.y);
             }
-            movingPlatformSpeed = sm.platformVel();
+            movingPlatformSpeed = sm.platformXVel();
+        }
+
+        //conveyor belts - not tested
+        if(isGrounded() && other.gameObject.CompareTag("ConveyorBelt")){
+            StageMovement sm = other.gameObject.GetComponent<StageMovement>();
+            if(sm != null){
+                rb.velocity = new Vector2(sm.platformXVel() + rb.velocity.x, rb.velocity.y);
+            }
+            movingPlatformSpeed = sm.conSpeed();
         }
 
     }
