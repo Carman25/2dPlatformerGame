@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3164783505630078967, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6670678342830198327, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -21509,7 +21513,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112735366}
   m_Enabled: 1
-  m_CellSize: {x: 0.19, y: 0.19, z: 0}
+  m_CellSize: {x: 0.16, y: 0.16, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
@@ -22332,6 +22336,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1361194700}
   zoom: -1
+  vertOffset: 0
+  Top: {fileID: 0}
+  Bottom: {fileID: 0}
 --- !u!81 &2143742544
 AudioListener:
   m_ObjectHideFlags: 0

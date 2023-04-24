@@ -142,13 +142,15 @@ public class PC2 : MonoBehaviour
 
     void Dash(){
         if(canDash && !isDashing){
-            animator.SetTrigger("Dash");
-            if(dashHud != null){
-                dashHud.Reset();
-            }
-            if(!devMode){
-                canDash = false;
-            }
+            if(!isGrounded() && !isOnMovingPlatform){
+                animator.SetTrigger("Dash");
+                if(dashHud != null){
+                    dashHud.Reset();
+                }
+                if(!devMode){
+                    canDash = false;
+                }
+            } 
         }
     }
 
