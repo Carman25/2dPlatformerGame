@@ -42719,6 +42719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 339975852658917449, guid: 0223d7b12626c40588a11d6e788e33a7, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 339975852658917451, guid: 0223d7b12626c40588a11d6e788e33a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -42834,11 +42838,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1761897731068858156, guid: d457105e032d14d1994e5da6327951ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -330.73303
+      value: -329.733
       objectReference: {fileID: 0}
     - target: {fileID: 1761897731068858156, guid: d457105e032d14d1994e5da6327951ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -145.72025
+      value: -147.7202
       objectReference: {fileID: 0}
     - target: {fileID: 1761897731068858156, guid: d457105e032d14d1994e5da6327951ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -43577,7 +43581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 2.5
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -43876,7 +43880,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.95, y: 0}
+  m_AnchoredPosition: {x: 1, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &660670538
@@ -44139,7 +44143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -580, y: -275}
+  m_AnchoredPosition: {x: -574, y: -282}
   m_SizeDelta: {x: 500, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867892641
@@ -50831,6 +50835,14 @@ PrefabInstance:
     - target: {fileID: 4985089718902592175, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148164535549318314, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -28.501404
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148164535549318314, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.500488
       objectReference: {fileID: 0}
     - target: {fileID: 6670678342830198327, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
       propertyPath: m_Pivot.x
@@ -72899,7 +72911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5904374211035513048, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.19
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 5904374211035513048, guid: 2b97faaa3b419423991f3aa5429fd49b, type: 3}
       propertyPath: m_LocalPosition.y

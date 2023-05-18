@@ -470,7 +470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514287728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.95, y: 0, z: -10}
+  m_LocalPosition: {x: 1, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2938,11 +2938,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1335529287}
   text1: Welcome to Jumpty Dumpty
-  text2: Your Objective Is to Reach the Flag at the Top
+  text2: Reach the Red Flag at the Top
   text3: Press F To Interact
   text4: Use A/D or L/R Arrows to Move
   text5: Space to Jump
-  text6: Good Luck!
+  text6: And P to Pause
   text7: 
   numRounds: 7
 --- !u!1 &1427630699
@@ -2995,7 +2995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 2.5
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -27243,11 +27243,15 @@ PrefabInstance:
       objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     - target: {fileID: 6148164535549318314, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -28.501404
+      value: -28.5
       objectReference: {fileID: 0}
     - target: {fileID: 6148164535549318314, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -9.500488
+      value: -9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670678342830198325, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6670678342830198327, guid: 950283f77f858421ab9447a05e6ff84e, type: 3}
       propertyPath: m_Pivot.x
