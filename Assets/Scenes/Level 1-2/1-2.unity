@@ -43148,6 +43148,8 @@ MonoBehaviour:
   speed: 0
   speed2: 1.5
   moveTime: 1
+  stickyPlatform: 0
+  bouncyPlatform: 0
 --- !u!19719996 &477500881
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -43639,6 +43641,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 409072701935681635, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
+      propertyPath: sceneToLoad
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1979658728821879162, guid: 5b37d5edfedda413db59aa6d295a87c2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -73209,6 +73215,8 @@ MonoBehaviour:
   speed: 1.5
   speed2: 1.5
   moveTime: 1
+  stickyPlatform: 0
+  bouncyPlatform: 0
 --- !u!19719996 &2032540387
 TilemapCollider2D:
   m_ObjectHideFlags: 0

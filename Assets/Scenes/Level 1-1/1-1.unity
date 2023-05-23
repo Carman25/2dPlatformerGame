@@ -7447,6 +7447,8 @@ MonoBehaviour:
   speed: -0.7
   speed2: 0
   moveTime: 1.5
+  stickyPlatform: 1
+  bouncyPlatform: 0
 --- !u!19719996 &453492408
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -7935,6 +7937,8 @@ MonoBehaviour:
   speed: 0
   speed2: 0.7
   moveTime: 1.5
+  stickyPlatform: 1
+  bouncyPlatform: 0
 --- !u!19719996 &522520642
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -42954,6 +42958,8 @@ MonoBehaviour:
   speed: -0.7
   speed2: 0.7
   moveTime: 1.5
+  stickyPlatform: 1
+  bouncyPlatform: 0
 --- !u!19719996 &1524406072
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -52122,6 +52128,8 @@ MonoBehaviour:
   speed: 0.7
   speed2: 0
   moveTime: 1.5
+  stickyPlatform: 1
+  bouncyPlatform: 0
 --- !u!19719996 &1856244386
 TilemapCollider2D:
   m_ObjectHideFlags: 0
