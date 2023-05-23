@@ -6,6 +6,7 @@ public class StageMovement : MonoBehaviour
 {
     private int sign;
     public float speed, speed2, moveTime;
+    public bool stickyPlatform, bouncyPlatform;
     private Rigidbody2D rb;
     void Start()
     {
@@ -25,11 +26,21 @@ public class StageMovement : MonoBehaviour
         updateSpeed();
     }
 
-    public float platformVel(){
+    public float platformXVel(){
         return speed * sign;
+    }
+    public float platformYVel(){
+        return speed2 * sign;
     }
 
     void updateSpeed() {
         rb.velocity = new Vector2(speed * sign, speed2 * sign);
+    }
+
+    public bool isSticky() {
+        return stickyPlatform;
+    }
+    public bool isBouncy() {
+        return bouncyPlatform;
     }
 }

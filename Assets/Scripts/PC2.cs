@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PC2 : MonoBehaviour
 {
-    private float horizontal, movingPlatformSpeed;
+    private float horizontal, movingPlatformXSpeed, movingPlatformYSpeed;
     public float speed, JumpPower, startTime, maxDistance;
     SpriteRenderer spriteRenderer;
     Animator animator;
@@ -26,14 +26,12 @@ public class PC2 : MonoBehaviour
             canDoubleJump = true;
             startTime = 0;  
         }
-
-
         if(hardMode){
             JumpPower = 4.0f;
         }else{
             JumpPower = 4.1f;
         }
-        movingPlatformSpeed = 0;
+        movingPlatformXSpeed = 0;
         animator = GetComponent<Animator>();
         canDoubleJump = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -46,8 +44,6 @@ public class PC2 : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("DashHud") != null){
             dashHud = GameObject.FindGameObjectWithTag("DashHud").GetComponent<HUD>();
         }
-        
-
     }
 
     void Update(){
@@ -59,18 +55,14 @@ public class PC2 : MonoBehaviour
                 if(isGrounded() || devMode){
                     rb.velocity = new Vector2(rb.velocity.x, JumpPower);
                     animator.SetTrigger("Jump");
-                    
+                    isOnMovingPlatform = false;
+                    // isGrounded = false;
                 }
                 else if(canDoubleJump){
                     rb.velocity = new Vector2(rb.velocity.x, JumpPower * 0.8f);
                     canDoubleJump = false;
                     animator.SetTrigger("Jump");
-                }
-                else{
-                    
-                }
-                
-                
+                } 
             }
             if(Input.GetButtonDown("Dash")){
                 Dash();
@@ -83,28 +75,34 @@ public class PC2 : MonoBehaviour
     void FixedUpdate(){
         if(!isStart || devMode){
             if(!isDashing){
-                if(isGrounded() == false){
-                    rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
-                    animator.SetBool("isMoving", false);
-                    
+                if(horizontal != 0){
+                    animator.SetBool("isMoving", true);
                     Flip(horizontal);
                 }
                 else{
-                    if(horizontal != 0){
-                            animator.SetBool("isMoving", true);
-                            Flip(horizontal);
-                        }
+                    animator.SetBool("isMoving", false);
+                }
+                if(isGrounded() == false){
+                    rb.velocity = new Vector2(horizontal * speed * 0.7f, rb.velocity.y); 
+                    animator.SetBool("isMoving", false);
+                    // Flip(horizontal);
+                }
+                else{
+                    
+                    if (isOnMovingPlatform) {
+                        // && (rb.velocity.y == movingPlatformYSpeed || rb.velocity.y == -movingPlatformYSpeed)
+                        //!Input.GetButtonDown("Jump")
+                        rb.velocity = new Vector2(horizontal * speed + movingPlatformXSpeed, movingPlatformYSpeed);
+                    }
+                    // else if(!isOnMovingPlatform)
                     else{
-                            animator.SetBool("isMoving", false);
-                    } 
-                    if(isOnMovingPlatform){
-                        rb.velocity = new Vector2(horizontal * speed + movingPlatformSpeed, rb.velocity.y);
-                    }else{
                         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
                     }
                 }
+                // else{
+                //     rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+                // }                       
             }
-
         }
         if(isGrounded() || isOnMovingPlatform){
             animator.SetBool("isGrounded", true);
@@ -113,24 +111,16 @@ public class PC2 : MonoBehaviour
         }
 
     }
-
-    void OnDrawGizmos(){
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(groundCheck.transform.position, boxSize);
-    }
-
     private bool isGrounded(){
         if(Physics2D.BoxCast(groundCheck.transform.position, boxSize, 0, -groundCheck.transform.up, maxDistance, groundLayer))
         {
-            return true;
-            
+            return true;  
         }
         else
         {
             return false;
         }
     }
-
     private void Flip(float n){
         if(n < 0){
             spriteRenderer.flipX = true;
@@ -139,7 +129,6 @@ public class PC2 : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
-
     void Dash(){
         if(canDash && !isDashing){
             if(!isGrounded() && !isOnMovingPlatform){
@@ -153,13 +142,48 @@ public class PC2 : MonoBehaviour
             } 
         }
     }
-
-    void EndDash(){
-        isDashing = false;
-        rb.gravityScale = 1;
-        Invoke("setCanDash", 2.25f);
+    public void OnCollisionStay2D(Collision2D other){
+        if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
+            StageMovement sm = other.gameObject.GetComponent<StageMovement>();
+            if(sm != null){
+                if(!sm.isSticky() && !sm.isBouncy()) {
+                    movingPlatformYSpeed = rb.velocity.y;
+                    // rb.velocity = new Vector2(sm.platformXVel() + rb.velocity.x, rb.velocity.y);
+                }
+                else if (sm.isSticky()) {
+                    movingPlatformYSpeed = sm.platformYVel();
+                    // rb.velocity = new Vector2(sm.platformXVel() + rb.velocity.x, sm.platformYVel());
+                }
+                else if (sm.isBouncy()) {
+                    movingPlatformYSpeed = sm.platformYVel() + rb.velocity.y;
+                    // rb.velocity = new Vector2(sm.platformXVel() + rb.velocity.x, sm.platformYVel()  + rb.velocity.y);
+                }
+                else {
+                    movingPlatformYSpeed = rb.velocity.y;
+                }
+                movingPlatformXSpeed = sm.platformXVel();
+            }
+        }
     }
-
+    public void OnCollisionEnter2D(Collision2D other){
+        if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
+            isOnMovingPlatform = true;
+        }
+    }
+    public void OnCollisionExit2D(Collision2D other){
+        if(other.gameObject.CompareTag("MovingTiles")){
+            isOnMovingPlatform = false;
+            // movingPlatformXSpeed = 0;
+            // movingPlatformYSpeed = 0;
+        }
+    }
+    void OnDrawGizmos(){
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(groundCheck.transform.position, boxSize);
+    }
+    void setIsStart(){
+        isStart = false;
+    }
     void StartDashMove(){
         rb.gravityScale = 0;
 
@@ -170,8 +194,7 @@ public class PC2 : MonoBehaviour
         }
         isDashing = true;
 
-    }
-
+    } 
     void StopDashMove(){
         rb.velocity = Vector2.zero;
     }
@@ -180,8 +203,11 @@ public class PC2 : MonoBehaviour
         canDash = true;
     }
 
-    void setIsStart(){
-        isStart = false;
+    
+    void EndDash(){
+        isDashing = false;
+        rb.gravityScale = 1;
+        Invoke("setCanDash", 2.25f);
     }
 
     public bool getDash(){
@@ -190,33 +216,6 @@ public class PC2 : MonoBehaviour
 
     public void setDash(bool dash){
         canDash = dash;
-    }
-    public void OnCollisionStay2D(Collision2D other){
-        if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
-            StageMovement sm = other.gameObject.GetComponent<StageMovement>();
-            if(sm != null){
-                rb.velocity = new Vector2(sm.platformVel() + rb.velocity.x, rb.velocity.y);
-            }
-            movingPlatformSpeed = sm.platformVel();
-        }
-
-    }
-
-    public void OnCollisionEnter2D(Collision2D other){
-        if(isGrounded() && other.gameObject.CompareTag("MovingTiles")){
-            isOnMovingPlatform = true;
-            
-            
-
-        }
-    }
-
-    public void OnCollisionExit2D(Collision2D other){
-        if(other.gameObject.CompareTag("MovingTiles")){
-            isOnMovingPlatform = false;
-            movingPlatformSpeed = 0;
-        }
-        
     }
 
     public void OutsideJump(){
